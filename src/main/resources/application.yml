@@ -1,0 +1,20 @@
+server:
+  port: 3003  # simulador usa http://localhost:3003/webhook
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/garagem
+    username: postgres
+    password: postgres
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+    open-in-view: false
+
+app:
+  simulator-base-url: ${SIMULATOR_BASE_URL:http://localhost:3000}
+  sync:
+    enabled: ${APP_SYNC_ENABLED:true}   # defina APP_SYNC_ENABLED=false para pular sync de startup
